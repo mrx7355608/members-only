@@ -11,13 +11,15 @@ const errorHandler = function (err, req, res, next) {
     }
     /* eslint-disable operator-linebreak */
     const { NODE_ENV } = process.env;
-    res.locals.error =
-        NODE_ENV === "developement"
-            ? err
-            : {
-                  message: "Something went wrong!",
-              };
-    return res.render("error", { title: "OoPs!" });
+    let error;
+    if (NODE_ENV === "development") {
+        error = {
+            message: err.message,
+            stack: err.stack,
+        };
+    }
+    error = { message: "Something went wrong!" };
+    return res.render("error", { title: "OoPs!", error });
 };
 
 export { catch404, errorHandler };
