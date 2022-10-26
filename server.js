@@ -15,7 +15,7 @@ const startServer = function () {
     });
     // Listening to requests
     const PORT = process.env.PORT || 3000;
-    server.listen(3000, function () {
+    server.listen(PORT, function () {
         console.log("[INFO] Server started on PORT", PORT);
     });
 };
