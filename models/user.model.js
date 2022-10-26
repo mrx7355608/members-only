@@ -19,6 +19,7 @@ userSchema.pre("save", function (next) {
     this.avatar = randomAvatar;
     next();
 });
+// A virtual which return Full name of the user
 userSchema.virtual("fullname").get(function () {
     const firstNameCapitalized = capitalize(this.fname);
     const lastNameCapitalized = capitalize(this.lname);
