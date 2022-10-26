@@ -49,6 +49,7 @@
     "@controllers": "./controllers",
     "@utils": "./utils",
     "@routes": "./routes",
-    "@models": "./models"
+    "@models": "./models",
+    "@validation": "./validation"
   }
 }
