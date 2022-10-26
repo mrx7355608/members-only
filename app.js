@@ -1,19 +1,20 @@
-import express from "express";
+import hbs from "hbs";
+import path from "path";
 import helmet from "helmet";
 import morgan from "morgan";
+import express from "express";
 import passport from "passport";
-import hbs from "hbs";
 import session from "express-session";
-import mongoConnectSession from "connect-mongodb-session";
-import path from "path";
+import authRouter from "@routes/auth.route";
 import passportSetup from "@utils/passport_setup.utils";
+import mongoConnectSession from "connect-mongodb-session";
 import { catch404, errorHandler } from "@middlewares/errorHandlers.middleware";
 
 const app = express();
 
 app.use(helmet());
 app.use(morgan("combined"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 // sessions setup
 const MongoDbStore = mongoConnectSession(session);
@@ -45,6 +46,7 @@ hbs.registerPartials(path.join(__dirname, "views", "partials"), function () {
 });
 
 // ROUTES
+app.use("/auth", authRouter);
 
 // ERROR HANDLERS
 app.get("*", catch404);
