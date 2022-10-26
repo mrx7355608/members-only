@@ -22,8 +22,9 @@ const userSchema = joi
             "string.empty": "Enter a password for your account",
             "string.min": "Password should be 8 characters long at least",
         }),
-        confirm_password: joi.valid(joi.ref("password")).messages({
+        confirm_password: joi.valid(joi.ref("password")).required().messages({
             "any.only": "Passwords do not match",
+            "any.required": "Confirm your password before proceeding.",
         }),
     })
     .messages({
