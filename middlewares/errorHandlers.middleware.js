@@ -10,15 +10,17 @@ const errorHandler = function (err, req, res, next) {
         return res.redirect("back");
     }
     /* eslint-disable operator-linebreak */
-    const { NODE_ENV } = process.env;
+
+    // other errors raised by our app
     let error;
-    if (NODE_ENV === "development") {
+    if (process.env.NODE_ENV === "development") {
         error = {
             message: err.message,
             stack: err.stack,
         };
+    } else {
+        error = { message: "Something went wrong!" };
     }
-    error = { message: "Something went wrong!" };
     return res.render("error", { title: "OoPs!", error });
 };
 
