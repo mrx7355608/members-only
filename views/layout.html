@@ -5,24 +5,62 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+        <link rel="stylesheet" href="/css/main.tw.css" />
         <title>{{title}}</title>
     </head>
-    <body>
-        <nav>
-            <h1>Logo</h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Signup</a></li>
-            </ul>
-        </nav>
-        <main>{{{body}}}</main>
-        <footer>
-            Made by Fawad Imran
-            <a target="_blank" href="https://icons8.com/icon/11901/people"
-                >People</a
-            >
-            icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        </footer>
+    <body class="bg-zinc-900">
+        <!-- Navbar -->
+        {{> navbar }}
+
+        <!-- Sidebar -->
+        <!-- {{> sidebar }} -->
+        <aside
+            id="menu"
+            class="fixed top-0 z-40 w-56 -ml-56 h-screen flex bg-zinc-900 duration-700"
+        >
+            <div class="w-full flex flex-col text-white px-5 py-4 space-y-4">
+                <a
+                    href="javascript:void(0)"
+                    onclick="closeMenu()"
+                    class="text-right text-4xl hover:text-rose-600"
+                    >&times;</a
+                >
+                <div class="mx-auto flex flex-col items-start justify-center">
+                    <a href="#" class="font-medium font-inter">HOME</a>
+                    <div class="w-6 h-1 rounded-md bg-violet-600"></div>
+                </div>
+                <div class="mx-auto flex flex-col items-start justify-center">
+                    <a href="#" class="font-medium font-inter">LOGIN</a>
+                    <div class="w-6 h-1 rounded-md bg-violet-600"></div>
+                </div>
+                <div class="mx-auto flex flex-col items-start justify-center">
+                    <a href="#" class="font-medium font-inter">SIGNUP</a>
+                    <div class="w-6 h-1 rounded-md bg-violet-600"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="py-5 min-h-screen">{{{body}}}</main>
+
+        <!-- Footer -->
+        {{> footer }}
+
+        <!-- Script to toggle sidebar -->
+        <script>
+            const menu = document.getElementById("menu");
+
+            // show the menu
+            function openMenu() {
+                menu.classList.remove("-ml-56");
+                menu.classList.add("ml-0");
+            }
+
+            // make the menu "go away"
+            function closeMenu() {
+                menu.classList.remove("ml-0");
+                menu.classList.add("-ml-56");
+            }
+        </script>
     </body>
 </html>
