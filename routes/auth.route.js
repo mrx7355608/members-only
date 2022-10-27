@@ -1,6 +1,7 @@
 import { Router } from "express";
 import AuthController from "@controllers/auth.controller";
 import signupValidatorMiddleware from "@middlewares/signupValidator.middleware";
+import passport from "passport";
 
 /* eslint-disable new-cap */
 const authRouter = Router();
@@ -10,7 +11,13 @@ const authController = new AuthController();
 authRouter
     .route("/login")
     .get(authController.renderLoginPage)
-    .post(authController.loginUser);
+    .post(
+        passport.authenticate("local", {
+            failureRedirect: "/auth/login",
+            failureFlash: true,
+        }),
+        authController.loginUser
+    );
 
 // Signup
 authRouter
