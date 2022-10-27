@@ -1,5 +1,7 @@
 const catch404 = function (req, res) {
-    return res.render("error", { message: "404 Resource not found! " });
+    return res.render("error", {
+        error: { message: "404 Resource not found! " },
+    });
 };
 
 const errorHandler = function (err, req, res, next) {
