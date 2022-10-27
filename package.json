@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "nodemon -r esm -r module-alias/register server.js",
     "start": "node -r esm -r module-alias/register server.js",
-    "build": "npx tailwindcss -i ./main.css -o ./public/css/main.tw.css",
-    "watch": "npx tailwindcss -i ./main.css -o ./public/css/main.tw.css --watch"
+    "build": "npx tailwindcss -i ./public/css/main.css -o ./public/css/main.tw.css",
+    "watch": "npx tailwindcss -i ./public/css/main.css -o ./public/css/main.tw.css --watch"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,8 @@
   "devDependencies": {
     "eslint": "^8.26.0",
     "eslint-config-google": "^0.14.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "tailwindcss": "^3.2.1"
   },
   "_moduleAliases": {
     "@root": ".",
