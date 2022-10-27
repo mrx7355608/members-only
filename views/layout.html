@@ -13,7 +13,6 @@
         {{> navbar }}
 
         <!-- Sidebar -->
-        <!-- {{> sidebar }} -->
         <aside
             id="menu"
             class="fixed top-0 z-40 w-56 -ml-56 h-screen flex bg-zinc-900 duration-700"
@@ -22,20 +21,33 @@
                 <a
                     href="javascript:void(0)"
                     onclick="closeMenu()"
-                    class="text-right text-4xl hover:text-rose-600"
+                    class="w-max text-4xl hover:text-rose-600"
                     >&times;</a
                 >
                 <div class="mx-auto flex flex-col items-start justify-center">
-                    <a href="#" class="font-medium font-inter">HOME</a>
-                    <div class="w-6 h-1 rounded-md bg-violet-600"></div>
+                    <a href="#" class="font-semibold text-md font-sans">HOME</a>
+                    <div
+                        style="height: 3px"
+                        class="w-5 rounded-md bg-violet-600"
+                    ></div>
                 </div>
                 <div class="mx-auto flex flex-col items-start justify-center">
-                    <a href="#" class="font-medium font-inter">LOGIN</a>
-                    <div class="w-6 h-1 rounded-md bg-violet-600"></div>
+                    <a href="#" class="font-semibold text-md font-sans"
+                        >LOGIN</a
+                    >
+                    <div
+                        style="height: 3px"
+                        class="w-5 rounded-md bg-violet-600"
+                    ></div>
                 </div>
                 <div class="mx-auto flex flex-col items-start justify-center">
-                    <a href="#" class="font-medium font-inter">SIGNUP</a>
-                    <div class="w-6 h-1 rounded-md bg-violet-600"></div>
+                    <a href="#" class="font-semibold text-md font-sans"
+                        >SIGNUP</a
+                    >
+                    <div
+                        style="height: 3px"
+                        class="w-5 rounded-md bg-violet-600"
+                    ></div>
                 </div>
             </div>
         </aside>
