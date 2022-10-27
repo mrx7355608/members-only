@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
     fname: String,
     lname: String,
     username: String,
-    password: String,
+    password: {
+        type: String,
+        select: false,
+    },
     avatar: String,
 });
 
@@ -24,6 +28,13 @@ userSchema.virtual("fullname").get(function () {
     const firstNameCapitalized = capitalize(this.fname);
     const lastNameCapitalized = capitalize(this.lname);
     return `${firstNameCapitalized} ${lastNameCapitalized}`;
+});
+// hash password
+userSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) return next();
+    const hashedPassword = await bcrypt.hash(this.password, 10);
+    this.password = hashedPassword;
+    next();
 });
 
 const User = mongoose.model("User", userSchema);

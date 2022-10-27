@@ -29,6 +29,10 @@ const userSchema = joi
     })
     .messages({
         "any.required": "Fill the form properly!",
+    })
+    .options({
+        allowUnknown: true,
+        stripUnknown: true,
     });
 const messageSchema = joi
     .object({
@@ -39,6 +43,10 @@ const messageSchema = joi
     })
     .messages({
         "any.required": "Fill the form properly",
+    })
+    .options({
+        allowUnknown: true,
+        stripUnknown: true,
     });
 
 export { userSchema, messageSchema };

@@ -13,7 +13,7 @@ const localStrategySetup = function (passport) {
                 // Check if user exists or not
                 const user = await User.findOne({ username }, "+password");
                 const errMessage = {
-                    message: "Incorrect email or password",
+                    message: "Incorrect username or password",
                 };
                 if (!user) return done(null, false, errMessage);
 
