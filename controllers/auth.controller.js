@@ -1,10 +1,10 @@
 class AuthController {
-    renderLoginPage() {
+    renderLoginPage(req, res, next) {
         res.locals.error = req.flash("error");
         return res.render("login");
     }
 
-    renderSignupPage() {
+    renderSignupPage(req, res, next) {
         res.locals.error = req.flash("error");
         return res.render("signup");
     }
