@@ -22,11 +22,13 @@ app.use(
                 scriptSrc: ["'self'", "'unsafe-inline'"],
             },
         },
+        referrerPolicy: { policy: "same-origin" },
     })
 );
 app.use(flash());
 app.use(morgan("combined"));
-app.use(express.urlencoded({ extended: true }));
+
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 // sessions setup
 const MongoDbStore = mongoConnectSession(session);
@@ -47,8 +49,8 @@ app.use(
 );
 // Passportjs setup
 app.use(passport.initialize());
-app.use(passport.session());
 passportSetup(passport);
+app.use(passport.session());
 // Views setup
 app.set("view engine", "html");
 app.set("views", path.join(__dirname, "views"));
