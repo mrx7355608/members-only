@@ -14,7 +14,16 @@ import { catch404, errorHandler } from "@middlewares/errorHandlers.middleware";
 
 const app = express();
 
-app.use(helmet());
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "'unsafe-inline'"],
+            },
+        },
+    })
+);
 app.use(flash());
 app.use(morgan("combined"));
 app.use(express.urlencoded({ extended: true }));
