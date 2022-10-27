@@ -1,18 +1,74 @@
 <nav
-    class="sticky top-0 flex justify-between items-center p-4 px-5 bg-zinc-900"
+    class="sticky top-0 flex justify-between items-center p-4 px-5 bg-zinc-800 md:px-8 md:py-6 lg:justify-around"
 >
     <!-- hamburger -->
-    <div onclick="openMenu()" class="space-y-1">
+    <div onclick="openMenu()" class="md:hidden space-y-1">
         <div style="height: 2px" class="bg-gray-300 w-6"></div>
         <div style="height: 2px" class="bg-gray-300 w-6"></div>
         <div style="height: 2px" class="bg-gray-300 w-6"></div>
     </div>
     <!-- logo -->
-    <div>
-        <h3 class="text-gray-100 font-black font-inter">MembersOnly</h3>
+    <div class="flex items-center">
+        <img
+            class="inline w-7 mr-1.5 md:w-9"
+            src="/images/logo.png"
+            alt="logo"
+        />
+        <a href="/">
+            <h3 class="inline text-gray-100 font-black font-inter md:text-xl">
+                MembersOnly
+            </h3>
+        </a>
     </div>
-    <!-- user avatar (if logged in) -->
-    <div style="padding: 2px" class="border-2 border-violet-700 rounded-full">
-        <img class="w-7 rounded-full" src="/images/avatar-1.jpg" alt="user" />
-    </div>
+    <ul class="flex items-center md:space-x-7">
+        <li>
+            <a
+                class="hidden text-gray-200 md:block hover:text-violet-600 font-medium"
+                href="/"
+                >HOME</a
+            >
+        </li>
+
+        {{#if user}}
+        <li>
+            <a
+                class="hidden text-gray-200 md:block hover:text-violet-600 font-medium"
+                href="/"
+                >POST MESSAGE</a
+            >
+        </li>
+        <!-- user avatar (if logged in) -->
+        <li>
+            <div class="flex items-center space-x-3">
+                <p class="hidden font-bold text-gray-200 px-3 py-2 md:block">
+                    {{user.fullname}}
+                </p>
+                <div
+                    style="padding: 2px"
+                    class="overflow-hidden border-2 border-violet-700 rounded-full"
+                >
+                    <img
+                        class="w-10 rounded-full"
+                        src="{{user.avatar}}"
+                        alt="user"
+                    />
+                </div>
+                <a
+                    class="hidden font-bold underline text-rose-600 px-3 py-2 md:block"
+                    href="/auth/logout"
+                    >Logout</a
+                >
+            </div>
+        </li>
+        {{else}}
+        <li>
+            <a
+                class="text-sm px-3 py-2 font-semibold rounded-lg bg-violet-600 text-white md:text-base md:px-4 md:py-3"
+                href="/auth/login"
+            >
+                LOGIN
+            </a>
+        </li>
+        {{/if}}
+    </ul>
 </nav>
