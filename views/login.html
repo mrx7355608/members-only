@@ -1,10 +1,10 @@
-<div class="w-screen p-4">
+<div class="w-screen p-4 max-w-lg md:mx-auto">
     {{#if success}}
     <p class="p-3 rounded-none bg-green-400/70 text-green-700/80 font-bold">
         {{success}}
     </p>
     {{/if}}
-    <h2 class="text-3xl mb-5 font-extrabold text-white">Login</h2>
+    <h2 class="text-3xl mb-5 font-extrabold text-white md:text-4xl">Login</h2>
     <form class="flex flex-col space-y-4" method="post">
         {{#if error}}
         <p class="p-3 rounded-md bg-amber-300/80 text-amber-700/80 font-bold">
