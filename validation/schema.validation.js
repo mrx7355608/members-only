@@ -39,6 +39,7 @@ const messageSchema = joi
         message: joi.string().min(10).required().messages({
             "string.empty": "Message cannot be empty!",
             "string.min": "Message should container 10 characters at least.",
+            "string.required": "Message is required!",
         }),
     })
     .messages({

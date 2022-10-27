@@ -4,6 +4,7 @@
     class="mx-auto w-11/12 flex flex-col items-center justify-start space-y-4"
 >
     <!-- message card -->
+    {{#each messages}}
     <div
         class="bg-zinc-800/40 rounded-lg p-3 py-4 w-full max-w-lg lg:p-4 lg:py-5"
     >
@@ -11,24 +12,24 @@
         <div class="flex justify-start items-center">
             <img
                 class="w-8 rounded-full lg:w-12"
-                src="/images/avatar-3.jpg"
+                src="{{author.avatar}}"
                 alt="user"
             />
             <div class="ml-1.5 flex flex-col space-y-0">
                 <h4
                     class="text-sm text-gray-200 font-roboto font-semibold lg:text-base"
                 >
-                    Fawad Imran
+                    {{author.fullname}}
                 </h4>
                 <p class="text-gray-500 font-medium text-xs lg:text-sm">
-                    Posted on: Tue Oct 3 2021
+                    Posted on: {{createdAt}}
                 </p>
             </div>
         </div>
         <!-- message -->
-        {{#if user}}
+        {{#if message}}
         <p class="mt-4 bg-zinc-700/30 p-3 rounded-md text-gray-200 text-lg">
-            {{message}}sdfsadfasdf
+            {{message}}
         </p>
         {{else}}
         <p class="mt-4 bg-zinc-700/30 p-3 rounded-md text-gray-200 text-lg">
@@ -40,4 +41,5 @@
         </p>
         {{/if}}
     </div>
+    {{/each}}
 </section>
