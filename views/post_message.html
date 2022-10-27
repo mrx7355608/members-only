@@ -1,0 +1,26 @@
+<div class="w-screen p-4">
+    <h2 class="text-3xl mb-5 font-extrabold text-white">Login</h2>
+    <form class="flex flex-col space-y-4" method="post">
+        {{#if error}}
+        <p class="p-3 rounded-md bg-amber-300/80 text-amber-700/80 font-bold">
+            {{error}}
+        </p>
+        {{/if}}
+        <input
+            class="p-3 bg-zinc-700/50 rounded-md outline-none text-white"
+            type="text"
+            placeholder="message"
+            name="message"
+        />
+        <input
+            class="hover:cursor-pointer rounded-md bg-violet-700 text-white outline-none font-semibold py-3"
+            type="submit"
+            value="POST"
+        />
+    </form>
+
+    <p class="font-medium text-center text-md mt-5 text-gray-200">
+        <a class="text-violet-600" href="/auth/signup">SignUp</a>, If you
+        haven't already
+    </p>
+</div>

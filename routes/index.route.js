@@ -6,5 +6,6 @@ const indexRouter = Router();
 const indexController = new IndexController();
 
 indexRouter.get("/", indexController.renderHomePage);
+indexRouter.get("/post-message", indexController.renderPostMessagePage);
 
 export default indexRouter;

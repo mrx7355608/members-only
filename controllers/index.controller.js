@@ -10,15 +10,13 @@ class IndexController {
             messages: [],
         });
     }
-    renderAddMessagePage(req, res, next) {
+    renderPostMessagePage(req, res, next) {
         res.locals.error = req.flash("error");
         res.locals.success = req.flash("success");
-        return res.render("add_message");
-    }
-    renderUserAccountPage(req, res, next) {
-        res.locals.error = req.flash("error");
-        res.locals.success = req.flash("success");
-        return res.render("user_account");
+        return res.render("post_message", {
+            title: "Post message | MembersOnly",
+            user: req.user,
+        });
     }
 }
 
