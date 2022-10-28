@@ -8,7 +8,6 @@ const server = createServer(app);
 
 const startServer = function () {
     // Connecting to database
-    console.log(process.env);
     mongoose.connect(process.env.DATABASE_URL);
     console.log("[INFO] Connected to database");
     mongoose.connection.on("error", function () {
