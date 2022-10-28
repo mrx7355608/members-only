@@ -23,7 +23,7 @@ const errorHandler = function (err, req, res, next) {
     } else {
         error = { message: "Something went wrong!" };
     }
-    return res.render("error", { title: "OoPs!", error });
+    return res.render("error", { title: "OoPs | MemebersOnly", error });
 };
 
 export { catch404, errorHandler };

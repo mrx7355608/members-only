@@ -58,7 +58,9 @@ app.engine("html", hbs.__express);
 hbs.registerPartials(path.join(__dirname, "views", "partials"), function () {
     console.log("[INFO] Partials have been registered");
 });
-
+hbs.registerHelper("formatDate", function (date) {
+    return new Date(date).toDateString();
+});
 // ROUTES
 app.use("/", indexRouter);
 app.use("/auth", authRouter);

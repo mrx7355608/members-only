@@ -13,6 +13,21 @@
             <a href="/" class="font-semibold text-md font-sans">HOME</a>
             <div style="height: 3px" class="w-5 rounded-md bg-violet-600"></div>
         </div>
+        {{#if user}}
+        <div class="mx-auto flex flex-col items-start justify-center">
+            <a href="/post-message" class="font-semibold text-md font-sans"
+                >POST MESSAGE</a
+            >
+            <div style="height: 3px" class="w-5 rounded-md bg-violet-600"></div>
+        </div>
+        <div class="mx-auto flex flex-col items-start justify-center">
+            <a
+                href="/auth/logout"
+                class="text-rose-600 font-semibold text-md font-sans"
+                >LOGOUT</a
+            >
+        </div>
+        {{else}}
         <div class="mx-auto flex flex-col items-start justify-center">
             <a href="/auth/login" class="font-semibold text-md font-sans"
                 >LOGIN</a
@@ -25,5 +40,6 @@
             >
             <div style="height: 3px" class="w-5 rounded-md bg-violet-600"></div>
         </div>
+        {{/if}}
     </div>
 </aside>
